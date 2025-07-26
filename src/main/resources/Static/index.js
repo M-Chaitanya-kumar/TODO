@@ -2,7 +2,7 @@ function addTaskToList(task)
 {
     const li = document.createElement('li');
     li.textContent = task.title;
-    document.getElementsById('task-list').appendChild(li);
+    document.getElementById('task-list').appendChild(li);
 }
 
 async function addTaskToBanckend(task)
@@ -38,7 +38,7 @@ document.getElementById("task-form").addEventListener("submit",
 {
     e.preventDefault();
 
-    const title = document.getElementById("task-title");
+    const title = document.getElementById("task-title").value;
 
     const task =
     {
