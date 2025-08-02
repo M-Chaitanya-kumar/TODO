@@ -1,3 +1,7 @@
+function handleClick(id)
+{
+    alert("Clicked -"+ id);
+}
 function addTaskToList(task,idName)
 {
     const li = document.createElement('li');
@@ -8,7 +12,9 @@ function addTaskToList(task,idName)
     if (task.status === "pending")
     {
         const button = document.createElement('button');
+        button.id = `btn-${task.id}`;
         button.textContent = "Mark as complete";
+        button.addEventListener("click", () => handleClick(button.id));
         document.getElementById(li.id).appendChild(button);
     }
 }
@@ -109,8 +115,6 @@ function displayOnlyTaskTitles(task, idName)
 
     createColumn(task.title, `col-${task.id}-${task.title}`, tr.id);
     createColumn(task.status, `col-${task.id}-${task.title}`, tr.id);
-    
-
 }
 
 async function showAllTasks()

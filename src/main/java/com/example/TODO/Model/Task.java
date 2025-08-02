@@ -2,7 +2,7 @@ package com.example.TODO.Model;
 
 public class Task {
     
-    private int     id                  = 0;
+    private int     id               = 0;
     private String  title            = "";
     private String  description      = "";
     private String  status           = "";
