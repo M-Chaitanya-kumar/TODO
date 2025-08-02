@@ -11,6 +11,16 @@
 
     <h2>To-Do List</h2>
     
+    <div class="container">
+        <button onclick = "showAllTasks()">All Tasks</button>
+
+        <table>
+            <tbody id="display-All-tasks">
+                <!-- rows will be added here -->
+            </tbody>
+        </table>
+    </div>
+
     <form id="task-form">
         <input type="text" id="task-title" placeholder="Enter a new task" required />
         <button type="submit">Add Task</button>
