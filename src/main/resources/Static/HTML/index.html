@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List App</title>
+    <link rel="stylesheet" href="../CSS/index.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <button onclick="window.open('http://localhost:8080/tasks', '_blank')">Bkd tasks</button>
+            <button onclick="window.open('http://localhost:8080/alltasks', '_blank')">All Tasks</button>
+            <button onclick="showCompletedTasks()">Completed tasks</button>
+        </div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <h2>To-Do List</h2>
+            <!-- Task Form -->
+            <form id="task-form">
+                <input type="text" id="task-title" placeholder="Enter a new task" required />
+                <button type="submit">Add</button>
+            </form>
+            <!-- Task List -->
+            <ul id="task-list">
+                <!-- Example task format:
+                <li>
+                    <input type="checkbox" />
+                    <span>Task name</span>
+                    <button class="delete-btn">Delete</button>
+                </li>
+                -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="./JS/index.js">            </script>
+    <script src="./JS/CompletedTasks.js">   </script>
+</body>
+</html>
