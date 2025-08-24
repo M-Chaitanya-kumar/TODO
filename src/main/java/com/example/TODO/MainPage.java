@@ -12,10 +12,17 @@ public class MainPage {
         System.out.println("Printing hello world program");
         return "./HTML/index.html";
     }
+    
     @RequestMapping("/alltasks")
     public String AllTasksPage() {
         
         return "./HTML/allTasks.html";
+    }
+    
+    @RequestMapping("/allcompletedtasks")
+    public String AllCompletedTasksPage() {
+
+        return "./HTML/allCompletedTasks.html";
     }
     
 }

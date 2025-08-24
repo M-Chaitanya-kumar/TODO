@@ -1,4 +1,4 @@
-import { getAllTasks } from "./Data/GetAPIData.js";
+import { getAllTasks, ModifyTask, DeleteTask } from "./Data/APIMethods.js";
 
 function displayOnlyTaskTitles(_task, _idName)
 {
@@ -13,6 +13,10 @@ function displayOnlyTaskTitles(_task, _idName)
     if (_task.status == 'pending')
     {
         createColumn('⌛', `col-${_task.id}-${_task.title}`, tr.id);
+    }
+    else
+    {
+        createColumn('✅', `col-${_task.id}-${_task.title}`, tr.id)
     }
 }
 

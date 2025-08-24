@@ -1,3 +1,4 @@
+import { ModifyTask, DeleteTask, getAllTasks} from "./Data/APIMethods.js";
 //Main Logic
 document.getElementById("task-form").addEventListener("submit", 
     async function (e)
@@ -57,7 +58,7 @@ function addTaskToList(_task, _idName)
     li.id = `list-${_task.id}`;
 
     //Input tag
-    const CheckboxInput = CreateCheckboxInputTag();
+    const CheckboxInput = CreateCheckboxInputTag(_task);
 
     //Span tag
     const TitleSpan = CreateTitleSpanTag(_task);
@@ -72,13 +73,15 @@ function addTaskToList(_task, _idName)
     TaskList.appendChild(li);
 }   
 
-function CreateCheckboxInputTag()
+function CreateCheckboxInputTag(_task)
 {
     const CheckboxInput = document.createElement('input');
 
     CheckboxInput.type          = 'checkbox';
     CheckboxInput.className     = 'task-checkbox'
 
+    CheckboxInput.addEventListener("change" , () => ChangeStatusCompleted(_task));
+ 
     return CheckboxInput;
 }
 
@@ -100,12 +103,27 @@ function CreateDeleteButtonTag(_task)
     deleteBtn.className         = 'delete-btn';
     deleteBtn.textContent       = '❌';
 
-    deleteBtn.addEventListener("click", () => handleClick(_task));
+    deleteBtn.addEventListener("click", () => RemoveTask(_task));
 
     return deleteBtn;
 }
 
-function handleClick(_task)
+async function RemoveTask(_task)
 {
-    alert("Clicked -"+ _task.id);
+    const response = await DeleteTask(_task);
+
+    if (response)
+    {
+        document.getElementById(`list-${_task.id}`).remove();
+    }
+}
+
+async function ChangeStatusCompleted(_task)
+{
+    const newStatus = _task.status == 'pending' ? "Completed" : "pending";
+    
+    await ModifyTask(_task, newStatus);
+
+    _task.status = newStatus;
+
 }

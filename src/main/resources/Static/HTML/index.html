@@ -13,7 +13,8 @@
         <div class="sidebar">
             <button onclick="window.open('http://localhost:8080/tasks', '_blank')">Bkd tasks</button>
             <button onclick="window.open('http://localhost:8080/alltasks', '_blank')">All Tasks</button>
-            <button onclick="showCompletedTasks()">Completed tasks</button>
+            <button onclick="window.open('http://localhost:8080/allcompletedtasks', '_blank')">Completed tasks</button>
+            <!-- <button onclick="showCompletedTasks()">Completed tasks</button> -->
         </div>
         <!-- Main Content -->
         <div class="main-content">
@@ -25,7 +26,7 @@
             </form>
             <!-- Task List -->
             <ul id="task-list">
-                <!-- Example task format:
+                <!--
                 <li>
                     <input type="checkbox" />
                     <span>Task name</span>
@@ -36,7 +37,6 @@
         </div>
     </div>
 
-    <script src="./JS/index.js">            </script>
-    <script src="./JS/CompletedTasks.js">   </script>
+    <script type="module" src="./JS/index.js"></script>
 </body>
 </html>
